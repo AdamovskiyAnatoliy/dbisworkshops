@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Medicine for desease or symptom</title>
+</head>
+<body>
+
+   <form action = "/api" method = "POST" id="form_mds">
+         <p>MDS_DATE<input type = "text" name = "MDS_DATE" value="{{medicine_for_desease_or_symptom['MDS_DATE']}}"/></p>
+         <p>DESEASE_DIS_NAME<input type = "text" name = "DESEASE_DIS_NAME" value="{{medicine_for_desease_or_symptom['DESEASE_DIS_NAME']}}"/></p>
+         <p>SYMPTOM_SYM_NAME<input type = "text" name = "SYMPTOM_SYM_NAME" value="{{medicine_for_desease_or_symptom['SYMPTOM_SYM_NAME']}}"/></p>
+         <p>MEDICINE_MED_NAME<input type = "text" name = "MEDICINE_MED_NAME" value="{{medicine_for_desease_or_symptom['MEDICINE_MED_NAME']}}"/></p>
+   </form>
+
+   <button type="submit" form="form_mds" name="action" value="mds_update">Submit</button>
+</body>
+</html>
+

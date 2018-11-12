@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Desease</title>
+</head>
+<body>
+
+   <form action = "/api" method = "POST" id="form_desease">
+         <p>DIS_NAME<input type = "text" name = "DIS_NAME" value="{{desease['DIS_NAME']}}"/></p>
+         <p>DIS_DESC<input type = "text" name = "DIS_DESC" value="{{desease['DIS_DESC']}}"/></p>
+   </form>
+
+   <button type="submit" form="form_desease" name="action" value="desease_update">Submit</button>
+
+</body>
+</html>
