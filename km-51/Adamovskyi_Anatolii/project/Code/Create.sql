@@ -77,7 +77,72 @@ ALTER TABLE user_mds
     ADD CONSTRAINT user_mds_user_fk FOREIGN KEY ( user_login )
         REFERENCES "user" ( login );
 
---
+ALTER TABLE card
+   ADD CONSTRAINT card_number_check CHECK ( REGEXP_LIKE ( card_number,
+                                                          '^[0-9]{1,8}$' ) );
+
+ALTER TABLE card
+    ADD CONSTRAINT user_login_check CHECK ( REGEXP_LIKE ( user_login,
+                                                          '^[0-9A-Z_a-z]{1,30}$' ) );
+
+ALTER TABLE desease
+    ADD CONSTRAINT dis_name_check CHECK ( REGEXP_LIKE ( dis_name,
+                                                        '^[0-9A-Z_a-z]{1,30}$' ) );
+
+ALTER TABLE desease
+    ADD CONSTRAINT dis_desc_check CHECK ( REGEXP_LIKE ( dis_desc,
+                                                        '^(.{0,2000})?( )?$' ) );
+
+ALTER TABLE mds
+    ADD CONSTRAINT desease_dis_name_check CHECK ( REGEXP_LIKE ( desease_dis_name,
+                                                                '^[0-9A-Z_a-z]{1,30}$' ) );
+
+ALTER TABLE mds
+    ADD CONSTRAINT symptom_sym_name_check CHECK ( REGEXP_LIKE ( symptom_sym_name,
+                                                                '^[0-9A-Z_a-z]{1,30}$' ) );
+
+ALTER TABLE mds
+    ADD CONSTRAINT medicine_med_name_check CHECK ( REGEXP_LIKE ( medicine_med_name,
+                                                                 '^[0-9A-Z_a-z]{1,30}$' ) );
+
+ALTER TABLE medicine
+   ADD CONSTRAINT med_name_check CHECK ( REGEXP_LIKE ( med_name,
+                                                       '^[0-9A-Z_a-z]{1,30}$' ) );
+
+ALTER TABLE medicine
+   ADD CONSTRAINT med_desc_check CHECK ( REGEXP_LIKE ( med_desc,
+                                                       '^(.{0,2000})?( )?$' ) );
+
+ALTER TABLE symptom
+   ADD CONSTRAINT sym_name_check CHECK ( REGEXP_LIKE ( sym_name,
+                                                       '^[0-9A-Z_a-z]{1,30}$' ) );
+
+ALTER TABLE symptom
+   ADD CONSTRAINT sym_desc_check CHECK ( REGEXP_LIKE ( sym_desc,
+                                                       '^(.{0,2000})?( )?$' ) );
+
+ALTER TABLE "user"
+   ADD CONSTRAINT login_check CHECK ( REGEXP_LIKE ( login,
+                                                       '^[0-9A-Z_a-z]{1,30}$' ) );
+
+ALTER TABLE "user"
+   ADD CONSTRAINT first_name_check CHECK ( REGEXP_LIKE ( first_name,
+                                                       '^[0-9A-Z_a-z]{1,30}$' ) );
+
+ALTER TABLE "user"
+   ADD CONSTRAINT last_name_check CHECK ( REGEXP_LIKE ( last_name,
+                                                       '^[0-9A-Z_a-z]{1,30}$' ) );
+
+ALTER TABLE "user"
+   ADD CONSTRAINT sex_check CHECK ( REGEXP_LIKE ( sex,
+                                                       '^[0-1]{1}$' ) );
+
+ALTER TABLE user_mds
+   ADD CONSTRAINT user_mds_login_check CHECK ( REGEXP_LIKE ( user_login,
+                                                         '^[0-9A-Z_a-z]{1,30}$' ) );
+
+
+
 -- DROP TABLE user_mds;
 -- DROP TABLE mds;
 -- DROP TABLE card;
