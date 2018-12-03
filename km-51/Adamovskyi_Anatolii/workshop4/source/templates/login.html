@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+
+<form action="http://127.0.0.1:5000/login" method="POST">
+    {{ form.hidden_tag() }}
+    <br>
+    {{ form.login.label }} {{ form.login }}
+    <br>
+    {{ form.password.label }} {{ form.password }}
+    <br>
+    {{ form.submit }}
+    {% for error in form.login.errors %}
+        {{ error }}
+    {% endfor %}
+</form>
+
+
+</body>
+</html>
